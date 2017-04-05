@@ -10,18 +10,7 @@
 	<componentDescriptors>
 		<componentDescriptor>src/assembly/component.xml</componentDescriptor>
 	</componentDescriptors>
-	<files>
-		<file>
-			<source>${project.basedir}/src/assembly/install-jboss4.xml</source>
-			<destName>install.xml</destName>
-			<outputDirectory>izpack</outputDirectory>
-		</file>
-		<file>
-			<source>${project.basedir}/src/assembly/userInputSpec.xml</source>
 
-			<outputDirectory>izpack</outputDirectory>
-		</file>
-	</files>
 
 	<fileSets>
 		<fileSet>
@@ -37,13 +26,27 @@
 			<directory>${project.build.directory}</directory>
 			<outputDirectory>izpack/deploy</outputDirectory>
 			 <includes>
-				<include>plugin*.jar</include>
+				<include></include>
 			</includes>
-			<excludes>
-				<exclude>plugin-1.0-SNAPSHOT-jar-with-dependencies.jar</exclude>
-			</excludes>
+
 		</fileSet>
 	</fileSets>
+	<files>
+		<file>
+			<source>${project.basedir}/src/assembly/install-jboss4.xml</source>
+			<destName>install.xml</destName>
+			<outputDirectory>izpack</outputDirectory>
+		</file>
+		<file>
+			<source>${project.basedir}/src/assembly/userInputSpec.xml</source>
+			<outputDirectory>izpack</outputDirectory>
+		</file>
+		<file>
+			<source>${project.build.directory}/${artifactId}-${version}.jar</source>
+			<outputDirectory>izpack/deploy/</outputDirectory>
+			<destName>plugin.jar</destName>
+		</file>
+	</files>
 	<dependencySets>
 		<dependencySet>
 			<scope>provided</scope>

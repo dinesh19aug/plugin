@@ -11,13 +11,10 @@
     <properties>
         <staging.dir>${project.build.directory}\${project.artifactId}-${project.version}-jboss4\izpack</staging.dir>
         <izpack.standalone.compiler.version>4.3.2</izpack.standalone.compiler.version>
+
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.codehaus.izpack</groupId>
-            <artifactId>izpack-panel</artifactId>
-            <version>5.1.0</version>
-        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -72,6 +69,13 @@
                 </dependencies>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${staging.dir}/izpack</directory>
+                <targetPath>${staging.dir}/izpack</targetPath>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

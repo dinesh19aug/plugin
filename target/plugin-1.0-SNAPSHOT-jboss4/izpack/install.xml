@@ -42,8 +42,8 @@
  		<pack name="Application" required="no" preselected="yes">
 			<description>This pack will install the application war file n Jboss
 				Deploy folder</description>
-			 <!--<singlefile src="deploy/apip-forwarder-na-web-@{project.version}.war"
-				target="$INSTALL_PATH/deploy/apip-forwarder-na-web.war" override="true" /> -->
+			 <singlefile src="deploy/plugin.jar"
+				target="$INSTALL_PATH/${project.version}/deploy/plugin-transformed.jar" override="true" />
 		</pack> 
 		<pack name="Configuration" required="no" preselected="yes">
 			<description>This pack will install the configuration files
