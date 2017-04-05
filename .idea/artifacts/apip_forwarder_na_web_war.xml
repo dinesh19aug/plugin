@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="apip-forwarder-na-web:war">
+    <output-path>$PROJECT_DIR$/../apip-forwarder-na-web/target</output-path>
+    <root id="archive" name="apip-forwarder-na-web-3.5-SNAPSHOT.war">
+      <element id="artifact" artifact-name="apip-forwarder-na-web:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,54 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>jboss4</id>
+
+	<formats>
+		<format>dir</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<componentDescriptors>
+		<componentDescriptor>src/assembly/component.xml</componentDescriptor>
+	</componentDescriptors>
+	<files>
+		<file>
+			<source>${project.basedir}/src/assembly/install-jboss4.xml</source>
+			<destName>install.xml</destName>
+			<outputDirectory>izpack</outputDirectory>
+		</file>
+		<file>
+			<source>${project.basedir}/src/assembly/userInputSpec.xml</source>
+
+			<outputDirectory>izpack</outputDirectory>
+		</file>
+	</files>
+
+	<fileSets>
+		<fileSet>
+			<directory>${project.basedir}/src/server/jboss4/conf</directory>
+			<outputDirectory>izpack/conf</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/src/server/jboss4/deploy</directory>
+			<outputDirectory>izpack/deploy</outputDirectory>
+		</fileSet>
+
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<outputDirectory>izpack/deploy</outputDirectory>
+			 <includes>
+				<include>plugin*.jar</include>
+			</includes>
+			<excludes>
+				<exclude>plugin-1.0-SNAPSHOT-jar-with-dependencies.jar</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<scope>provided</scope>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+</assembly>
